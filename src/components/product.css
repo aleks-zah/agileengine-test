@@ -1,0 +1,24 @@
+.product-list-row {
+    display: flex;
+}
+
+.product {
+    border: 1px solid black;
+    padding: 10px;
+    margin: 10px;
+    width: 200px;
+}
+
+.product-attribute {
+    font-family: "Arial", "Times New Roman", "Century";
+    font-size: 16px;
+    color: dimgrey;
+    display: flex;
+}
+
+.color {
+    width: 20px;
+    height: 20px;
+    margin: 0 5px;
+    display: block;
+}
