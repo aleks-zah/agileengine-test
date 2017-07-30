@@ -7,7 +7,7 @@ import { ajax } from 'rxjs/observable/dom/ajax';
 import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
-import { productsReducer, fetchProductsEpic, addProductEpic, removeProductEpic } from './components/reducer';
+import { productsReducer, fetchProductsEpic, addProductEpic, removeProductEpic } from './products/reducer';
 import 'rxjs';
 
 const rootEpic = combineEpics(

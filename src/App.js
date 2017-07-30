@@ -3,9 +3,9 @@ import { Button } from 'semantic-ui-react'
 import { connect } from 'react-redux';
 import { withState, compose } from 'recompose';
 import logo from './logo.svg';
-import ProductList from './components/product-list';
-import NewProductModal from './components/modal';
-import { fetchProducts } from './components/reducer';
+import ProductList from './products/product-list';
+import NewProductModal from './products/modal';
+import { fetchProducts } from './products/reducer';
 import './App.css';
 
 class App extends Component {
