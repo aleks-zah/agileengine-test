@@ -7,16 +7,17 @@ import { ajax } from 'rxjs/observable/dom/ajax';
 import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
-import { productsReducer, fetchProductsEpic, addProductEpic } from './components/reducer';
+import { productsReducer, fetchProductsEpic, addProductEpic, removeProductEpic } from './components/reducer';
 import 'rxjs';
 
 const rootEpic = combineEpics(
   addProductEpic,
-  fetchProductsEpic
+  fetchProductsEpic,
+  removeProductEpic
 );
 
 const epicMiddleware = createEpicMiddleware(rootEpic, {
-  dependencies: { getJSON: ajax.getJSON, post: ajax.post },
+  dependencies: { getJSON: ajax.getJSON, post: ajax.post, ajax },
 });
 const store = createStore(productsReducer, applyMiddleware(epicMiddleware));
 

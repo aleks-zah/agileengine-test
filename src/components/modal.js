@@ -1,50 +1,17 @@
 import React from 'react';
-import { Button, Modal, Input, Radio } from 'semantic-ui-react'
+import { Button, Modal } from 'semantic-ui-react'
 import { withHandlers, withState, compose } from 'recompose';
 import { addProduct } from './reducer';
-
-const Error = (props) => <div className="error">{props.error}</div>;
+import ColorRadioGroup from './color-radio-group';
+import NameInput from './name-input';
 
 const NewProductModalRaw = ({ name, modalOpen, modalError, handleChangeName, handleChangeColor, color, modalErrors, setModalOpen, handleAddProduct }) => (
   <Modal open={modalOpen}>
     <Modal.Header>Add product</Modal.Header>
     <Modal.Content>
       <Modal.Description>
-        <div className="modal-row">
-          <Input placeholder="name" value={name} onChange={handleChangeName} />
-          {modalErrors.length > 0 &&
-            modalErrors.map(err => <Error error={err} key={err} />)
-          }
-        </div>
-        <div className="modal-row">
-          <div className="radio-row">
-            <Radio
-              label='Red'
-              name='colorGroup'
-              value='red'
-              checked={color === 'red'}
-              onChange={handleChangeColor}
-            />
-          </div>
-          <div className="radio-row">
-            <Radio
-              label='Green'
-              name='colorGroup'
-              value='green'
-              checked={color === 'green'}
-              onChange={handleChangeColor}
-            />
-          </div>
-          <div className="radio-row">
-            <Radio
-              label='Blue'
-              name='colorGroup'
-              value='blue'
-              checked={color === 'blue'}
-              onChange={handleChangeColor}
-            />
-          </div>
-        </div>
+        <NameInput name={name} modalErrors={modalErrors} handleChangeName={handleChangeName} />
+        <ColorRadioGroup color={color} handleChangeColor={handleChangeColor} />
       </Modal.Description>
     </Modal.Content>
     <Modal.Actions>
